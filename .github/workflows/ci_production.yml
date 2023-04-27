@@ -1,6 +1,5 @@
 name: CI - Deploy Application with GitHub Pages
-description: 'A GitHub Action to deploy an artifact as a GitHub Pages site'
-author: 'Lomap_es05a'
+
 on:
   push:
     branches: ['master']
