@@ -49,6 +49,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: bitovi/github-actions-react-to-ghp@v1.1.1
-        path: build
+          path: build
     
 
