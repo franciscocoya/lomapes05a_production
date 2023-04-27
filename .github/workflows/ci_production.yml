@@ -1,5 +1,6 @@
 name: CI - Deploy Application with GitHub Pages
-
+description: 'A GitHub Action to deploy an artifact as a GitHub Pages site'
+author: 'Lomap_es05a'
 on:
   push:
     branches: ['master']
@@ -22,26 +23,6 @@ jobs:
         node-version: 18
     - run: npm --prefix webapp ci --legacy-peer-deps
     - run: npm --prefix webapp test --coverage --watchAll
-    - name: Analyze with SonarCloud
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./webapp
-          destination: ./_site
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
 
   docker-push-webapp:
     name: Push webapp Docker Image to GitHub Packages
@@ -60,14 +41,15 @@ jobs:
 
   deploy:
     name: Publish to GitHub Pages
+    needs: [tests, docker-push-webapp]
     environment:
       name: production
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
+    runs-on: ubuntu-latests
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: bitovi/github-actions-react-to-ghp@v1.1.1
+        path: build
     
 
