@@ -1,0 +1,59 @@
+[[section-introduction-and-goals]]
+== Introduction and Goals
+
+LoMap es el proyecto del curso actual de la asignatura Arquitectura del Software, que será desarrollado por el equipo 5A compuesto por los integrantes:
+
+- Ricardo Marqués Garay
+- Miguel González Navarro
+- Francisco Coya Abajo
+- Marcos Valín Fernández
+- Sergio Buenaga Gutiérrez
+
+Y, con la ayuda del profesorado:
+
+- Jose Emilio Labra Gayo
+- Irene Cid Rico
+
+Consiste en una aplicación donde los ciudadanos podrán disponer de mapas personalizados sobre lugares
+y negocios actuales de la ciudad.
+
+=== Requirements Overview
+
+- El sistema permitirá a los usuarios añadir localizaciones a los mapas en diversas categorías. Además los usuarios podrán añadir comentarios, puntuaciones, etc. sobre dichas localizaciones.
+
+- El sistema permitirá a los usuarios mostrar localizaciones en una ventana de tipo mapa
+
+- El sistema gestionará la información almacenada sobre una localización por cada usuario de forma descentralizada. Se pueden dar excepciones por rendimiento siempre que se respete la privacidad de los usuarios.
+
+- El sistema permitirá a los usuarios gestionar la información que comparten con otros usuarios. Y, siempre que lo permitan, acceder a localizaciones e información relativa a ellas compartida por sus amigos.
+
+- El sistema permitirá a los usuarios emplear filtros a la hora de visualizar el mapa.
+
+Se puede consultar el siguiente documento, que contiene una descripción de la aplicación a desarrollar, así como una lista de requisitos funcionales más detallada:
+
+https://arquisoft.github.io/course2223/labEnunciadoPractica.html
+
+=== Quality Goals
+
+Segun ISO/IEC 25010
+
+[options="header"]
+|=============================================================================================================================================================================================================================================================================================================================================================================
+| Objetivo de Calidad | Motivación                                                                                                                                                                                                                                                                                                                                 | Prioridad
+| Usabilidad          | Para que el producto sea consumible por los usuarios finales, ha de tener un diseño moderno y minimalista, centrado en un público de edades diversas. Para ello, tiene que ser intuitivo y fácil de usar                                                                                                                                   | 3        
+| Seguridad           | Desarrollar aplicaciones 100% seguras a día de hoy es imposible, pero ello no quiere decir que sea posible implementar medidas de protección ante ataques comunmente conocidos. La descentralización del sistema, contribuye a un incremento de la seguridad. Además, implementar medidas tanto para el lado cliente como para el servidor | 4        
+| Privacidad          | Lo primero es la privacidad de los usuarios. Por ello, la gestión de mapas mediante el uso de SOLID, almacenando los datos en un sistema distribuido. Cada usuario tendrá un POD personal, no visible a otros usuarios                                                                                                                     | 5        
+| Testabilidad          | Se implementarán pruebas unitarias en la aplicación para asegurar el correcto funcionamiento del sistema.                                                                                                  | 4        
+|=============================================================================================================================================================================================================================================================================================================================================================================
+
+=== Stakeholders
+
+[options="header"]
+|===============================================================================================================================================================================================================================================================================
+| Rol                      | Descripción                                                                                    | Expectativas                                                                                                                                      
+| Cliente                  | Empresa que nos contrata, ficticia (HappySw), representada por los profesores de la asignatura | Que la aplicación desarrollada cumpla con los requisitos mencionados en el apartado 1.1                                                           
+| Equipo de desarrollo     | Ricardo Marqués, Miguel González, Francisco Coya, Marcos Valín y Sergio Buenaga                                 | Desarrollar la aplicación con éxito en base a la documentación, de forma que refleje los conocimientos de arquitectura adquiridos durante el curso
+| Usuarios                 | El conjunto de personas que van a utilizar el producto final desarrollado                      | Que la aplicación funcione correctamente y que cumpla, implícitamente, con los objetivos de calidad                                               
+| Ayuntamiento de Bruselas | Organismo público que contrata al Cliente                                                      | Mismas expectativas que nuestro Cliente (HappySw)                                                                                                 
+|===============================================================================================================================================================================================================================================================================
+

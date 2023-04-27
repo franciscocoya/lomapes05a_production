@@ -1,0 +1,74 @@
+[[section-design-decisions]]
+== Design decisions
+
+=== Accepted decisions
+
+Estas son las decisiones que en grupo hemos tomado para nuestra aplicación:
+
+[%header, cols=4]
+|===
+|Decision arquitectonica
+|Ventajas
+|Desventajas
+|Enlace al ADR
+
+|TypeScript
+|Resuelve uno de los grandes problemas de JavaScript, el enlace dinámico.
+|Ninguno de nosotros hemos usado nunca, y debemos aprender.
+|https://github.com/Arquisoft/lomap_es5a/wiki/ADR.-Lenguaje[ADR 00]
+
+|React js
+|Actualiza componentes y vistas en tiempo real, permite modularizar la interfaz de usuario en componentes.
+|Documentación muy escueta, dificultando el aprendizaje.
+|https://github.com/Arquisoft/lomap_es5a/wiki/ADR.-React-JS[ADR 01]
+
+|SOLID
+|Organiza de forma descentralizada
+|Dificil de utilizar
+|https://github.com/Arquisoft/lomap_es5a/wiki/ADR.-Estructura-Cliente-v3-%5BFront-End%5D[ADR 18]
+
+|NodeJS
+|Se integra con solid, contiene muchas librerias probadas y verificadas, creación de APIs mas sencilla.
+|Monohilo, la integración de asincronía puede hacer el codigo inmantenible.
+|https://github.com/Arquisoft/lomap_es5a/wiki/ADR.-NodeJS-%5BBack-End%5D[ADR 02]
+
+|React Leflet
+|Calidad-coste superior a las demás.
+|Nunca hemos trabajado con el.
+|https://github.com/Arquisoft/lomap_es5a/wiki/ADR.-Librer%C3%ADa-de-Mapas-%5BFront-End%5D[ADR 05]
+
+
+|Styled Components
+|Facilita enormemente el trabajo, altamente probados y validados por la comunidad.
+|Se depende del mantenimiento de y licencia de uso de esta libreria.
+|https://github.com/Arquisoft/lomap_es5a/wiki/ADR.-Styled-Components[ADR 07]
+
+|Azure
+|Nos aseguramos tener una base de otras asignaturas y disponemos de credito
+|A veces da bastantes problemas
+|https://github.com/Arquisoft/lomap_es5a/wiki/ADR.-Despliegue-Aplicaci%C3%B3n-%5BCI-CD%5D[ADR 06]
+
+|Firebase Cloud Storage
+|Gran velocidad de desarrollo, y no necesidad de servidor
+|Principiantes con ella
+|https://github.com/Arquisoft/lomap_es5a/wiki/ADR.--Base-de-datos-para-imagenes[ADR 19]
+
+|Visual Studio Code
+|Muy facil de usar, experiencia con el, y disponible en muchos sistemas operativos.
+| Necesidad de instalar muchos pluggins.
+|https://github.com/Arquisoft/lomap_es5a/wiki/ADR.---IDE[ADR 09]
+
+|JEST 
+|Buena documentación y recursos, paralización de test y facil configuración.
+|No tenemos conocimiento con esta libreria
+|https://github.com/Arquisoft/lomap_es5a/wiki/ADR.-Tests-Back-End[ADR 10]
+https://github.com/Arquisoft/lomap_es5a/wiki/ADR.-Test-Front-End[ADR 11]
+
+|Zustand
+|Ofrece mayor rendimiento por la sencillez de su implementación
+|No sigue un patrón, la estructura es libre para el desarrollador
+|https://github.com/Arquisoft/lomap_es5a/wiki/ADR.-Gesti%C3%B3n-de-estados-(Front-End)[ADR 17]
+|===
+
+
+

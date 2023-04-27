@@ -1,0 +1,26 @@
+version: '3.5'
+volumes:
+    prometheus_data: {}
+    grafana_data: {}
+services:
+  webapp:
+    build: ./webapp
+    ports:
+      - "3000:3000"
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+  grafana:
+    image: grafana/grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SERVER_HTTP_PORT=9091
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    ports:
+      - "9091:9091"
