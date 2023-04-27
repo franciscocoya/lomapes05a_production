@@ -8,15 +8,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'     
-        required: true
-        default: 'warning'
-      tags:
-        description: 'Test scenario tags' 
 
 jobs:
   unit-tests:
