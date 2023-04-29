@@ -16,7 +16,7 @@ function TopAccountAside() {
     e.preventDefault();
     sessionStorage.clear();
     await session.logout().then(() => {
-      window.location.href = `${BASE_PATH}${HOME_PATH}`;
+      window.location.href = `${BASE_PATH}`;
     });
   };
 

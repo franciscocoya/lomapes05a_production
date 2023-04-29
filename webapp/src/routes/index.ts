@@ -1,5 +1,5 @@
 // Rutas de la aplicacion
-const BASE_PATH = "https://franciscocoya.github.io/";
+const BASE_PATH = "https://franciscocoya.github.io/lomapes05a_production/";
 
 // Pagina de inicio
 const HOME_PATH = "/";
