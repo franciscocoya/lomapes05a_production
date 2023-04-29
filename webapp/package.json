@@ -43,10 +43,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "npm run lint -- --fix",
     "test": "react-scripts test --color --transformIgnorePatterns \"node_modules/(?!react-leaflet)/\" --useStderr --coverage",
-    "test:run": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
   },
