@@ -26,11 +26,13 @@ jobs:
   deploy:
     name: Publish to GitHub Pages
     needs: [tests]
-    environment:
-      name: production
-      url: https://franciscocoya.github.io/lomapes05a_production
     runs-on: ubuntu-latest
     steps:
+    - name: Install and Build
+        run: |
+          npm ci
+          npm run build
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: JamesIves/github-pages-deploy-action@4.1.0

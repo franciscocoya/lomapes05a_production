@@ -2,9 +2,9 @@ name: CI for LOMAP ES5A
 
 on:
   pull_request:
-    branches: ['**']
+    branches: ['develop']
   push:
-    branches: ['**']
+    branches: develop
   
   workflow_dispatch:
     inputs:
