@@ -28,10 +28,10 @@ jobs:
     needs: [tests]
     runs-on: ubuntu-latest
     steps:
-    - name: Install and Build
-      run: |
-        npm ci
-        npm run build
+      - name: Install and Build
+        run: |
+          npm ci
+          npm run build
 
       - name: Deploy to GitHub Pages
         id: deployment
