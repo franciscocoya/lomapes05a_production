@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/lomapes05a_production/static/css/main.223523c3.css",
-    "main.js": "/lomapes05a_production/static/js/main.0dd2e954.js",
+    "main.js": "/lomapes05a_production/static/js/main.c31e1899.js",
     "static/media/about-image.png": "/lomapes05a_production/static/media/about-image.8fcc51afc583266b69d2.png",
     "static/media/bg-1.jpg": "/lomapes05a_production/static/media/bg-1.6e0441dc7f2a480797da.jpg",
     "static/media/marker_base.svg": "/lomapes05a_production/static/media/marker_base.2368211f22b6c1cc2a756b6b21fd9f01.svg",
     "index.html": "/lomapes05a_production/index.html",
     "main.223523c3.css.map": "/lomapes05a_production/static/css/main.223523c3.css.map",
-    "main.0dd2e954.js.map": "/lomapes05a_production/static/js/main.0dd2e954.js.map"
+    "main.c31e1899.js.map": "/lomapes05a_production/static/js/main.c31e1899.js.map"
   },
   "entrypoints": [
     "static/css/main.223523c3.css",
-    "static/js/main.0dd2e954.js"
+    "static/js/main.c31e1899.js"
   ]
 }
