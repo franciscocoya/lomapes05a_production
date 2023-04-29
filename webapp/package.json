@@ -1,7 +1,7 @@
 {
   "name": "webapp",
   "author": "Lomap_es5a",
-  "homepage": "https://github.com/franciscocoya/lomapes05a_production/",
+  "homepage": "https://franciscocoya.github.io/lomapes05a_production",
   "description": "Web application of Lomap_es5a",
   "version": "2.1.0",
   "dependencies": {
@@ -48,7 +48,7 @@
     "test": "react-scripts test --color --transformIgnorePatterns \"node_modules/(?!react-leaflet)/\" --useStderr --coverage",
     "test:run": "react-scripts test --coverage",
     "eject": "react-scripts eject",
-    "prod": "gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [

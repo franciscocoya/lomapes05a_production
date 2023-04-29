@@ -54,8 +54,8 @@ function App() {
 
   return (
     <Routes>
-      <Route path={LOGIN_PATH} element={<LoginPage />} />
       <Route path={HOME_PATH} element={<HomePage />} />
+      <Route path={LOGIN_PATH} element={<LoginPage />} />
       <Route path={GENERAL_POINT_PATH}>
         <Route path={SINGLE_POINT_PATH} element={<SinglePointDetailsPage />} />
       </Route>
