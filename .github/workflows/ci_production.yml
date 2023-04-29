@@ -33,10 +33,13 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-      - uses: actions/setup-node@v3
+        uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
-          node-version: 18
+          branch: gh-pages
+          folder: build
+
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REACT_APP_FIREBASE_API_KEY: ${{ secrets.REACT_APP_FIREBASE_API_KEY }}
           REACT_APP_FIREBASE_AUTH_DOMAIN: ${{ secrets.REACT_APP_FIREBASE_AUTH_DOMAIN }}
           REACT_APP_FIREBASE_PROJECT_ID: ${{ secrets.REACT_APP_FIREBASE_PROJECT_ID }}
@@ -45,7 +48,5 @@ jobs:
           REACT_APP_FIREBASE_APP_ID: ${{ secrets.REACT_APP_FIREBASE_APP_ID }}
           REACT_APP_BASEPATH: ${{ secrets.REACT_APP_BASEPATH }}
           REACT_APP_NODE_ENV: ${{ secrets.REACT_APP_NODE_ENV }}
-      - run: npm --prefix webapp run build
-      - run: npm --prefix webapp run deploy
     
 
