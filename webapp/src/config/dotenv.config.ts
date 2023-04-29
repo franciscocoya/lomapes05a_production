@@ -2,6 +2,9 @@ import {
   FirebaseConfig,
 } from "../shared/shareddtypes";
 
+// Url base de la aplicacion
+const basePath = process.env.REACT_APP_BASEPATH;
+
 // Variables de Firebase
 const firebaseConfig: FirebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY as string,
@@ -12,5 +15,5 @@ const firebaseConfig: FirebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID as string,
 };
 
-export { firebaseConfig };
+export { firebaseConfig, basePath };
 
