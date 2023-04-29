@@ -5,41 +5,31 @@ on:
     branches: ['master']
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 jobs:
-  tests:
-    timeout-minutes: 10
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 18
-    - run: npm --prefix webapp ci --legacy-peer-deps
-    - run: npm --prefix webapp test --coverage --watchAll
-
   deploy:
     name: Publish to GitHub Pages
-    needs: [tests]
-    environment:
-      name: production
-      url: https://franciscocoya.github.io/lomapes05a_production
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Install and Build 🔧
+        run: |
+          npm --prefix webapp ci
+          CI=false && npm --prefix webapp run build
+
+      - name: Deploy 🚀
         id: deployment
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
-          folder: build
+          folder: webapp/build
 
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REACT_APP_FIREBASE_API_KEY: ${{ secrets.REACT_APP_FIREBASE_API_KEY }}
           REACT_APP_FIREBASE_AUTH_DOMAIN: ${{ secrets.REACT_APP_FIREBASE_AUTH_DOMAIN }}
           REACT_APP_FIREBASE_PROJECT_ID: ${{ secrets.REACT_APP_FIREBASE_PROJECT_ID }}

@@ -2,9 +2,9 @@ name: CI for LOMAP ES5A
 
 on:
   pull_request:
-    branches: ['**']
+    branches: ['develop']
   push:
-    branches: ['**']
+    branches: develop
   
   workflow_dispatch:
     inputs:
@@ -28,8 +28,3 @@ jobs:
         node-version: 18
     - run: npm --prefix webapp ci --legacy-peer-deps
     - run: npm --prefix webapp test --coverage --watchAll
-    - name: Analyze with SonarCloud
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

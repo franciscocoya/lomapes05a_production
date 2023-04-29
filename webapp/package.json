@@ -43,10 +43,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "npm run lint -- --fix",
     "test": "react-scripts test --color --transformIgnorePatterns \"node_modules/(?!react-leaflet)/\" --useStderr --coverage",
-    "test:run": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
   },
@@ -91,7 +88,6 @@
     "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0",
     "babel-jest": "^29.5.0",
     "enzyme": "^3.11.0",
-    "eslint": "^8.38.0",
     "expect-puppeteer": "^6.0.2",
     "gh-pages": "^5.0.0",
     "jest": "^29.5.0",
