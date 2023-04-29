@@ -1,7 +1,7 @@
 {
   "name": "webapp",
   "author": "Lomap_es5a",
-  "homepage": "https://franciscocoya.github.io/lomapes05a_production",
+  "homepage": "https://franciscocoya.github.io/lomapes05a_production/",
   "description": "Web application of Lomap_es5a",
   "version": "2.1.0",
   "dependencies": {
