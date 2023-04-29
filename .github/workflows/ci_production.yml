@@ -27,7 +27,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
-          folder: build
+          folder: /home/runner/work/lomapes05a_production/build
           repository-name: ${{ github.repository }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
