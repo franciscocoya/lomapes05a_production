@@ -28,7 +28,7 @@ jobs:
     needs: [tests]
     environment:
       name: production
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://franciscocoya.github.io/lomapes05a_production
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
