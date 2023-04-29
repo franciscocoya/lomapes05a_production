@@ -1,5 +1,5 @@
 // Rutas de la aplicacion
-const BASE_PATH = "http://localhost:3000";
+const BASE_PATH = "https://franciscocoya.github.io/";
 
 // Pagina de inicio
 const HOME_PATH = "/";
