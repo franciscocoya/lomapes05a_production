@@ -2,7 +2,7 @@ name: CI - Deploy Application with GitHub Pages
 
 on:
   push:
-    branches: ['master']
+    branches: ["master"]
 
 permissions:
   contents: read
@@ -22,13 +22,21 @@ jobs:
           npm --prefix webapp ci
           CI=false && npm --prefix webapp run build
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: JamesIves/github-pages-deploy-action@4.1.0
+      - name: Deploy 🚀
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages
-          folder: ./build
-          repository-name: franciscocoya/lomapes05a_production
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./webapp/build
+          publish_branch: gh-pages
+          force_orphan: true
+          enable_jekyll: false
+          cname: ${{ secrets.REACT_APP_BASEPATH }}
+          commit_message: ${{ github.event.head_commit.message }}
+          commit_user_name: ${{ github.event.head_commit.author.name }}
+          commit_user_email: ${{ github.event.head_commit.author.email }}
+          keep_files: true
+          allow_empty_commit: true
+          fqdn: ${{ secrets.REACT_APP_BASEPATH }}
 
         env:
           REACT_APP_FIREBASE_API_KEY: ${{ secrets.REACT_APP_FIREBASE_API_KEY }}
@@ -39,5 +47,3 @@ jobs:
           REACT_APP_FIREBASE_APP_ID: ${{ secrets.REACT_APP_FIREBASE_APP_ID }}
           REACT_APP_BASEPATH: ${{ secrets.REACT_APP_BASEPATH }}
           REACT_APP_NODE_ENV: ${{ secrets.REACT_APP_NODE_ENV }}
-    
-
