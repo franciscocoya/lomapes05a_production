@@ -30,8 +30,8 @@ jobs:
     steps:
       - name: Install and Build
         run: |
-          npm ci
-          npm run build
+          npm --prefix webapp ci
+          npm --prefix webapp run build
 
       - name: Deploy to GitHub Pages
         id: deployment
