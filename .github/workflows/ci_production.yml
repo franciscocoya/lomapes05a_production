@@ -22,13 +22,6 @@ jobs:
           npm --prefix webapp ci
           CI=false && npm --prefix webapp run build
 
-      - name: Deploy 🚀
-        id: deployment
-        uses: JamesIves/github-pages-deploy-action@4.1.0
-        with:
-          branch: gh-pages
-          folder: webapp/build
-
         env:
           REACT_APP_FIREBASE_API_KEY: ${{ secrets.REACT_APP_FIREBASE_API_KEY }}
           REACT_APP_FIREBASE_AUTH_DOMAIN: ${{ secrets.REACT_APP_FIREBASE_AUTH_DOMAIN }}
@@ -38,5 +31,12 @@ jobs:
           REACT_APP_FIREBASE_APP_ID: ${{ secrets.REACT_APP_FIREBASE_APP_ID }}
           REACT_APP_BASEPATH: ${{ secrets.REACT_APP_BASEPATH }}
           REACT_APP_NODE_ENV: ${{ secrets.REACT_APP_NODE_ENV }}
+
+      - name: Deploy 🚀
+        id: deployment
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: webapp/build
     
 
