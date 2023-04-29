@@ -36,6 +36,10 @@ jobs:
           npm --prefix webapp ci
           npm --prefix webapp run build
 
+      - name: Deploy
+        run: npm --prefix webapp run deploy
+
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: JamesIves/github-pages-deploy-action@4.1.0
