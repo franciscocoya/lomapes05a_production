@@ -1,116 +1,14 @@
-# LOMAP ES5A
-
 [![CI for LOMAP ES5A](https://github.com/Arquisoft/lomap_es5a/actions/workflows/lomap_es5a.yml/badge.svg)](https://github.com/Arquisoft/lomap_es5a/actions/workflows/lomap_es5a.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_lomap_es5a&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Arquisoft_lomap_es5a)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_lomap_es5a&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Arquisoft_lomap_es5a) [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_lomap_es5a&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Arquisoft_lomap_es5a)
 
+# LOMAP ES5A - Tu aplicación de mapas
+Repositorio dedicado al despliegue de la aplicación (Entorno de producción). El repositorio original es: [https://github.com/Arquisoft/lomap_es5a](https://github.com/Arquisoft/lomap_es5a), donde encontrará toda la información, documentación y guías acerca de la aplicación.
 
-Lomap es una aplicación web descentralizada que permite compartir puntos de interés con tus amigos y conocidos. 
+![BANNER REPO](https://user-images.githubusercontent.com/56480356/235353759-1037cbdc-ed98-4ad4-8849-d6e666597109.png)
 
-## Stack tecnológico
-
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white)
-
-## Instalación
-
-<hr>
-
-### Versiones
-La aplicación se ha desarrollado y probado utilizando las siguientes versiones de librerías:
-
-- React: v18.0.2
-- NodeJS: 18.15.0
-- NPM: 8.19.3
-
-<hr>
-
-1. Acceder a la [siguiente página](https://github.com/Arquisoft/lomap_es5a/releases) y descargar la última versión (latest release) del proyecto.
-
-2. Desplazarse hasta el directorio ```webapp``` ([Ver directorio](https://github.com/Arquisoft/lomap_es5a/tree/master/webapp))
-
-``` shell
-cd webapp
-```
-
-3. Copiar el fichero de variables de entorno denominado ```.env.development``` dentro del directorio anterior.
-
-<img src="https://user-images.githubusercontent.com/56480356/231736706-8a3e24bf-52b7-4e74-a63b-227249f65356.png" alt="Estructura directorios aplicación lomap" width="auto" height="300px"/>
-
-> Importante
->
-> El fichero ```.env.development``` no se encuentra en este repositorio por motivos de seguridad. Contactar con <a href="mailto:uo257239@uniovi.es">el responsable</a>
-
-### Variables de entorno
-
-A continuación, se indican las variables de entorno contenidas dentro del fichero ```.env.development``` mencionado en puntos anteriores (webapp), para incluirlo con tus credenciales.
-
-```
-REACT_APP_FIREBASE_API_KEY
-REACT_APP_FIREBASE_AUTH_DOMAIN
-REACT_APP_FIREBASE_PROJECTID
-REACT_APP_FIREBASE_STORAGE_BUCKET
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID
-REACT_APP_FIREBASE_APP_ID
-REACT_APP_NODE_ENV=development
-```
-
-> Nota
->
-> La variable ```REACT_APP_NODE_ENV``` indica el nombre del ficherlo .env utilizado. Asignar ```development``` para que reconozca el fichero denominado de esta forma (.env.development).
-
-
-4. Instalar las dependencias del proyecto, a través del gestor de paquetes de npm. Para ello, es necesario tener instalado previamente ```NodeJS```, descargado a través del [siguiente enlace](https://nodejs.org/en/download). Es recomendable instalar la última versión estable (LTS).
-
-``` shell
-   npm install --legacy-peer-deps
-```
-
-## Guía de inicio rápido
-
-A continuación, te indicamos los pasos necesarios para ejecutar el proyecto y probar las principales funcionalidades desde tu entorno local.
-
-### Iniciar la aplicación
-``` shell
-npm run start
-```
-
-### Comprobar errores de ESLINT
-``` shell
-npm run lint
-```
-
-### Pasar la suite de tests
-``` shell
-npm run test
-```
-
-### Pasar la suite de tests e2e
-``` shell
-npm run test:e2e
-```
-
-### Empaquetar el proyecto
-``` shell
-npm run build
-```
-
-### Añadir un nuevo punto
-Iniciar sesión con una cuenta de SOLID. Una vez en sesión, pulsar la opción del menú de navegación superior denominada "Añadir punto", rellenar el formulario (Algunos campos son obligatorios, ver indicaciones).
-<br><br>
-![imagen](https://user-images.githubusercontent.com/56480356/231787019-34695258-91ee-4d6c-a2f4-269a13e412b6.png)
-<br><br>
-Para añadir el nuevo punto, seguir los siguientes pasos:
-- Escribir un nombre para el punto, que se utilizará como título de este.
-- Arrastrar el marcador dentro del mapa, las coordenadas se autocompletarán en los respectivos campos latitud y longitud.
-- Seleccionar la categoría del punto.
-- Indicar una descripción (Opcional).
-- Seleccionar una imagen pulsando el botón "Subir imagen". Dicha imagen se mostrará en el popup del punto en mapa, entre otras ubicaciones. Esta acción también es opcional.
-<br><br>
-<a href="https://youtu.be/bU9S6Q43PTw" target="_blank">
-   <img src="https://user-images.githubusercontent.com/56480356/231818798-5a50c952-131a-4c5f-a749-fadf2821f924.png" alt="thumbnail"
-   width="80%" height="auto"/>
-</a>
-<br><br />
+## Incidencias
+Si encuentra un error en la aplicación, puede documentarlo como una nueva issue, dentro de la sección de issues de este repositorio. Para ello, identifique el error con un título descriptivo y una descripción, si es posible, que contenga de una captura donde se muestre el error, así como los pasos para reproducirlo.
 
 ## Colaboradores
 Este proyecto es posible gracias a los siguientes desarrolladores:
@@ -132,3 +30,5 @@ Este proyecto es posible gracias a los siguientes desarrolladores:
       <img src="https://user-images.githubusercontent.com/56480356/231734815-6411d057-8fd7-41ff-8419-b75a1bd741ad.png" style="border-radius: 100px" width="96px" height="96px"/>
    </a>
 </div>
+
+
