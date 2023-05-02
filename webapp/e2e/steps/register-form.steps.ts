@@ -15,7 +15,7 @@ defineFeature(feature, test => {
     page = await browser.newPage();
 
     await page
-      .goto("http://localhost:3000", {
+      .goto("https://franciscocoya.github.io/lomapes05a_production/", {
         waitUntil: "networkidle0",
       })
       // eslint-disable-next-line @typescript-eslint/no-empty-function
