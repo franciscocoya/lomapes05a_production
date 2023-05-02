@@ -8,11 +8,14 @@ import BaseTextInput from "../../inputs/BaseTextInput";
 import BaseButton from "../../buttons/BaseButton";
 import {addFriend,getAllFriends} from "../../../api/friends.api";
 
+
 function BottomAccountAside(){
 
     const { session } = useSession();
     const {setFriends, friends} = useUserStore();
     const [friendWebId, setFriendWebId] = useState("");
+    const [error, setError] = useState("");
+    const [isLoading, setLoading] = useState(false);
 
     //cargar lista de amigos
     const loadAllFriends = async () => {
@@ -21,16 +24,38 @@ function BottomAccountAside(){
     };
     
     useEffect(() => {
-        loadAllFriends();
-    }, [friends]);
-    
-    const handleAddFriend = () => {
-        addFriend(session.info.webId as string, friendWebId);
+         setTimeout(() => {
+           setError("");
+         }, 4000);
+       }, [error]);
+
+      const handleRefreshFriends = async () => {
+        setLoading(true);
+        await loadAllFriends();
+        setLoading(false);
+      }
+
+    const handleAddFriend = async () => {
+        try{
+            await addFriend(session.info.webId as string, friendWebId);
+        }catch(error){
+            if(error instanceof Error)
+                setError(error.message);
+            else
+            setError("Se ha producido un error desconocido");
+        }
     };
 
     return(
-        <div className="friends-container-aside">
+        <div className="friends-container-aside" role="friends-aside">
             <div className="top-acc-aside-title">Amigos</div>
+            <BaseButton
+                data-testid="reload-friends-button"
+                type="button-blue"
+                text="Recargar amigos"
+                isLoading={isLoading}
+                onClick={handleRefreshFriends}
+            />
             <BaseTextInput
                 label={""} 
                 type={"text"} 
@@ -39,8 +64,17 @@ function BottomAccountAside(){
                     {setFriendWebId(e.target.value)}
                 }
             />
+            { error ? 
+                <p style={{
+                    color: "#FF000B",
+                    backgroundColor: "#FFA7A0",
+                    borderRadius: '5px',
+                    padding: '5px',
+                    border: "1px solid #FF000B"
+                  }}>{error}</p> :
+                <></>
+            }
             <BaseButton
-                data-testid="create-point-button"
                 type="button-blue"
                 text="Agregar amigo"
                 onClick={handleAddFriend}
@@ -48,7 +82,7 @@ function BottomAccountAside(){
 
 
                 <label htmlFor={generateUUID()}></label>
-                <div className="friend-list-aside">
+                <div role="friend-list-aside" className="friend-list-aside">
                     {friends ? 
                             friends.map((friend) =>{ //realizar la construccion del amigo
                                 return(

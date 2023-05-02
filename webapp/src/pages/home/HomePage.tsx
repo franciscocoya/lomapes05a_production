@@ -12,46 +12,23 @@ import BaseMap from "../../components/maps/BaseMap";
 import PointCategoryFilterPopup from "../../components/popups/PointCategoryFilterPopup";
 import AuthenticatedLayout from "../../layouts/AuthenticatedLayout";
 import "../../public/css/pages/home/HomePage.scss";
-import { Friend, Point } from "../../shared/shareddtypes";
-import { useAllPointsStore } from "../../store/point.store";
+import { Point } from "../../shared/shareddtypes";
+import { useAllPointsStore, usePointDetailsStore } from "../../store/point.store";
 import { useUserStore } from "../../store/user.store";
 
 function HomePage() {
   const { setAllPoints, points, isFiltering, filteredPoints, showFilterPopup } =
     useAllPointsStore();
+    const {resetPointImage, resetPointInfo} = usePointDetailsStore();
   const { setName, setImageUrl, setFriends } = useUserStore();
   const { session } = useSession();
 
+
   const loadAllPoints = async () => {
     const data: Point[] = await findAllUserPoints(session.info.webId as string);
-    setAllPoints(data);
-    //const friendsPoints: Point[] = await findAllSharedPointsByFriends(session)
-  };
-
-  const sharePoint = async () => {
-    const friend: Friend = await getAllFriends(
-      session.info.webId as string
-    ).then((friends) => {
-      return friends[0];
-    });
-
-    const sharedPoints: Point[] = await findAllSharedPointsByFriends(session)
-      .then((points) => {
-        return points;
-      })
-      .catch(() => {
-        return [];
-      });
-
-      console.log("amigos: ", sharedPoints);
-
-      setAllPoints([...points, ...sharedPoints]);
-  };
-
-  const loadUserFriends = async () => {
-    if (session.info.isLoggedIn) {
-      const friends = await getAllFriends(session.info.webId as string);
-    }
+    
+    const friendsPoints: Point[] = await findAllSharedPointsByFriends(session)
+    setAllPoints([...data,...friendsPoints]);
   };
 
   const loadUserInfo = async () => {
@@ -63,18 +40,19 @@ function HomePage() {
       return;
     }
 
+    const friends = await getAllFriends(session.info.webId as string);      
     setName(userInfo?.name ?? session.info.webId?.split("/")[2]);
     setImageUrl(userInfo.imageUrl ?? "");
-    setFriends(userInfo.friends ?? []);
+    setFriends(friends);
   };
 
   useEffect(() => {
-
-    //sharePoint();
-    // sharePoint();
-    loadUserFriends();
     loadUserInfo();
     loadAllPoints();
+
+    // Restablecemos el estado de la imagen y el punto
+    resetPointImage();
+    resetPointInfo();
   }, []);
 
   return (

@@ -21,7 +21,7 @@ function SuccessReviewPopupSection({
   handleOnClick,
 }: SuccessReviewPopupSectionProps) {
   return (
-    <div className="add-new-review-point-popup__success-review">
+    <div className="add-new-review-point-popup__success-review" role="review">
       <CheckRoundedIcon className="add-new-review-point-popup-success__icon" />
       <h2>Valoración publicada !</h2>
       <p>Gracias por tu aportación</p>
@@ -94,8 +94,9 @@ function AddNewReviewToPointPopup({
       }
       setIsReviewPublished(false);
       setIsSendingReview(true);
-
-      addReviewPoint(pointInfo._id, review, session.info.webId as string).then(
+      const reviewOwnerWebId = pointInfo.owner.webId;
+      review.pointId = pointInfo._id;
+      addReviewPoint(review, session, reviewOwnerWebId).then(
         (err: any) => {
           if (!err) {
             setIsSendingReview(false);
@@ -128,7 +129,7 @@ function AddNewReviewToPointPopup({
           onClick={(e: any) => handleClosePopup(e)}
         />
       </div>
-      <div className="add-new-review-point-popup__body">
+      <div className="add-new-review-point-popup__body" role="body">
         {isReviewPublished ? (
           <SuccessReviewPopupSection
             handleOnClick={(e: any) => handleClosePopupAfterSave(e)}
@@ -140,11 +141,13 @@ function AddNewReviewToPointPopup({
 
             <form action="#">
               <BaseStarRating
+                data-testid="basestarrating"
                 rating={review.rating}
                 handleChangeRating={(e, value) => handleChangeRating(e, value)}
               />
               <div className="add-new-review-form__form-group">
                 <BaseTextInput
+                  data-testid="basestarinput"
                   label="Título"
                   name="title"
                   type="text"
@@ -153,7 +156,7 @@ function AddNewReviewToPointPopup({
                 />
                 <span>Máximo 100 caracteres</span>
               </div>
-              <div className="add-new-review-form__form-group">
+              <div className="add-new-review-form__form-group" role="form-group">
                 <BaseTextArea
                   label="¿Qué te ha parecido?"
                   name="comment"
@@ -163,6 +166,7 @@ function AddNewReviewToPointPopup({
                 <span>Máximo 500 caracteres</span>
               </div>
               <BaseButton
+                data-testid = "button-base"
                 type={isSendingReview ? "button-disabled" : "button-black"}
                 disabled={isSendingReview}
                 text={isSendingReview ? "Enviando..." : "Enviar valoración"}

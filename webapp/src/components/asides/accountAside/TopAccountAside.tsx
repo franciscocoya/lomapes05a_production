@@ -6,7 +6,7 @@ import TopAsideButton from "./topAccountAside/TopAsideButton";
 
 import { useNavigate } from "react-router-dom";
 import { ACCOUNT_MENU_ITEMS } from "../../../helpers/MenuHelper";
-import { BASE_PATH, HOME_PATH } from "../../../routes";
+import { BASE_PATH } from "../../../routes";
 
 function TopAccountAside() {
   const { session } = useSession();
@@ -16,7 +16,7 @@ function TopAccountAside() {
     e.preventDefault();
     sessionStorage.clear();
     await session.logout().then(() => {
-      window.location.href = `${BASE_PATH}`;
+      window.location.href = BASE_PATH;
     });
   };
 

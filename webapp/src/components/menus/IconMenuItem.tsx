@@ -1,8 +1,8 @@
-import Icon from "@mui/material/Icon";
-import "../../public/css/components/menus/menuItems/IconMenuItem.scss";
 import { useSession } from "@inrupt/solid-ui-react";
-import { BASE_PATH, LOGIN_PATH } from "../../routes";
+import Icon from "@mui/material/Icon";
 import { useNavigate } from "react-router-dom";
+import "../../public/css/components/menus/menuItems/IconMenuItem.scss";
+import { BASE_PATH } from "../../routes";
 
 /**
  * @param name: Nombre del elemento de menu.
@@ -26,6 +26,7 @@ function IconMenuItem({ name, iconName, url }: Props) {
         window.location.href = BASE_PATH;
       });
     }
+    
     navigate(url ?? "#");
   };
 
