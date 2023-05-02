@@ -4,6 +4,7 @@
   "homepage": "https://franciscocoya.github.io/lomapes05a_production/",
   "description": "Web application of Lomap_es5a",
   "version": "2.1.0",
+  "type": "module",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
